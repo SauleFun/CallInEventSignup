@@ -1,0 +1,12 @@
+.header-logo {
+margin: 5px;
+width: 15rem;
+height:10rem ;
+}
+
+.header-wrap {
+height: 10vh;
+display:flex;
+justify-content: space-between;
+
+}

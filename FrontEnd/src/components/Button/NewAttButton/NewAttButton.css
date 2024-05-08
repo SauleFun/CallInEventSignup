@@ -1,0 +1,14 @@
+.new-att-button {
+  font-size: 1em;
+  padding: 0.5em 1em;
+  margin: 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  background: transparent;
+  color: palevioletred;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+  text-decoration: none;
+  float: right;
+}
+
