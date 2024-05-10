@@ -1,6 +1,6 @@
 import Footer from "../../layouts/Footer/Footer";
 import Header from "../../layouts/Header/Header";
-import RegistrationForm from "./RegisterForm";
+import RegisterForm from "./RegisterForm";
 
 
 const Register = () => {
@@ -10,7 +10,7 @@ const Register = () => {
             <div className="content">
                 register
 
-                <RegistrationForm />
+                <RegisterForm />
                 
             </div>
 

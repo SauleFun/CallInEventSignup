@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import styles from ""
+import styles from './RegisterForm.module.scss';
+import Input from '../../components/Input/Input';
 
 
 function RegisterForm() {
@@ -10,16 +11,16 @@ function RegisterForm() {
         email: '',
         phone: '',
         age: '',
-    });
+});
 
-    // const handleChange = (e) => {
-    //     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // }
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log(formData);
-    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+};
 
     return (
         <form onSubmit={handleSubmit}>
@@ -34,7 +35,7 @@ function RegisterForm() {
                             name="name"
                             placeholder="Name"
                             value={formData.name}
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={handleChange}
                             className={styles.fullWidth}
                             required
                             />
@@ -45,7 +46,7 @@ function RegisterForm() {
                             name="surname"
                             placeholder="Surname"
                             value={formData.surname}
-                            onChange={(e) => setSurname(e.target.value)}
+                            onChange={handleChange}
                             className={styles.fullWidth}
                             required
                             />
@@ -56,7 +57,7 @@ function RegisterForm() {
                             name="email"
                             placeholder="Email"
                             value={formData.email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={handleChange}
                             className={styles.fullWidth}
                             required
                             />
@@ -67,7 +68,7 @@ function RegisterForm() {
                             name="phone"
                             placeholder="Phone number"
                             value={formData.phone}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            onChange={handleChange}
                             className={styles.fullWidth}
                             required
                             />
@@ -78,23 +79,23 @@ function RegisterForm() {
                             name="age"
                             placeholder="Age"
                             value={formData.age}
-                            onChange={(e) => setAge(e.target.value)}
+                            onChange={handleChange}
                             className={styles.fullWidth}
                             required
                             />
                             <div className={styles.buttons}>
-                               
-                                    {/* <Button type="submit" className={styles.registerButton}>
-                                    Register
-                                    </Button> */}
-                            </div>
+                            {/* <div>
+                                <Button type="submit" className={styles.registerButton}>
+                                Register
+                                </Button>
+                            </div> */}
                         </div>
                     </div>
-              </div>
+              </div>  
+              </div>   
          </form>
+        );
+    };
 
-           
-    );
-}
 
-export default RegisterForm
+export default RegisterForm;
