@@ -6,13 +6,11 @@ html, body {
 
 body {
   background-image: url('./assets//background.jpg'); /* Update the path as necessary */
-  body {
-    background-image: url('./assets/background.jpg'); /* Update the path as necessary */
-    background-size: cover; /* Cover the entire page */
+  
    
    
   }
-}
+
 
 #root {
   display: flex;
