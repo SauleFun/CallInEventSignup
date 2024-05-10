@@ -1,0 +1,50 @@
+.registerContainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-image: url(./images/bg-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.containerForm{
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    position: relative;
+    padding: 10px;
+    z-index: 9999;
+    text-align: center;
+  }
+
+.formHeading{
+    font-size: 30px;
+    color: #452005;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    font-family: "Pacifico", cursive;
+  }
+
+.containerInput{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    position: relative;
+    z-index: 2;
+  }
+  .fullWidth {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
