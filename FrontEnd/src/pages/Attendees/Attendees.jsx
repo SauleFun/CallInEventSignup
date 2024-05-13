@@ -6,9 +6,7 @@ const Attendees = () => {
     return (
         <main>
             <Header/>
-            <div >
                 <AttendeesForm/>
-            </div>
             <Footer/>
         </main>
 

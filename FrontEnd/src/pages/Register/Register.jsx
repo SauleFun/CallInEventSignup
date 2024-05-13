@@ -8,13 +8,8 @@ const Register = () => {
         <main>
             <Header></Header>
             <div className="content">
-           
-
                 <RegisterForm />
-                
             </div>
-
-
             <Footer></Footer>
         </main>
     );

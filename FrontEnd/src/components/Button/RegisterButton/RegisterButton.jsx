@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
 import './RegisterButton.css';
 
 const RegisterButton = () => {
   return (
     <div className="button-container">
-    <Link to="/register" className="register-button">
-      Submit !
-    </Link>
+      <button type="submit" className="register-button">
+        Submit !
+      </button>
     </div>
   );
 };

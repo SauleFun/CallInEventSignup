@@ -1,7 +1,7 @@
 import './Header.css';
 import companyLogo from '../../assets/AJ_Logo.png';
 import { Link } from 'react-router-dom';
-import NewAttButton from '../../components/Button/NewAttButton/NewAttButton';
+// import NewAttButton from '../../components/Button/NewAttButton/NewAttButton';
 
 const Header =() => {
     // const location = useLocation();
@@ -13,11 +13,11 @@ const Header =() => {
                 ></img>
             </Link>
                 
-        <div className='header-nav'>
+       {/* <div className='header-nav'>   */}
             {/* {location.pathname === '/Attendees' && <NewAttButton />} */}
-              <NewAttButton></NewAttButton>
+              {/* <NewAttButton></NewAttButton>  */}
 
-        </div>
+              {/* </div> */}
         </div>
             );
 };

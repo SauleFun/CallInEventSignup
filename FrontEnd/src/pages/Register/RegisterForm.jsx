@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
+import { useState } from 'react';
 import styles from './RegisterForm.module.scss';
 import Input from '../../components/Input/Input';
 import RegisterButton from '../../components/Button/RegisterButton/RegisterButton';
 
 function RegisterForm() {
-    const [formData, setFormData] = useState({
+    const [formData] = useState({
         name: '',
         surname: '',
         email: '',
@@ -12,26 +12,9 @@ function RegisterForm() {
         age: '',
     });
 
-    const formRef = useRef(null);
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
-    };
-
-    const handleExternalSubmit = () => {
-        if (formRef.current) {
-            formRef.current.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-        }
-    };
-
     return (
         <div>
-            <form ref={formRef} onSubmit={handleSubmit}>
+            <form>
                 <div className={styles.registerContainer}>
                     <div className={styles.containerForm}>
                         <div className={styles.formHeading}>Personal Information</div>
@@ -43,7 +26,6 @@ function RegisterForm() {
                                 name="name"
                                 placeholder="Name"
                                 value={formData.name}
-                                onChange={handleChange}
                                 className={styles.fullWidth}
                                 required
                             />
@@ -54,7 +36,6 @@ function RegisterForm() {
                                 name="surname"
                                 placeholder="Surname"
                                 value={formData.surname}
-                                onChange={handleChange}
                                 className={styles.fullWidth}
                                 required
                             />
@@ -65,7 +46,6 @@ function RegisterForm() {
                                 name="email"
                                 placeholder="Email"
                                 value={formData.email}
-                                onChange={handleChange}
                                 className={styles.fullWidth}
                                 required
                             />
@@ -76,7 +56,6 @@ function RegisterForm() {
                                 name="phone"
                                 placeholder="Phone number"
                                 value={formData.phone}
-                                onChange={handleChange}
                                 className={styles.fullWidth}
                                 required
                             />
@@ -87,7 +66,6 @@ function RegisterForm() {
                                 name="age"
                                 placeholder="Age"
                                 value={formData.age}
-                                onChange={handleChange}
                                 className={styles.fullWidth}
                                 required
                             />
@@ -96,8 +74,7 @@ function RegisterForm() {
                 </div>
             </form>
             <div className={styles.buttons}>
-            <RegisterButton onClick={handleExternalSubmit} />
-               
+                <RegisterButton />
             </div>
         </div>
     );
