@@ -3,6 +3,7 @@ import './AttendeesForm.module.scss';
 import styles from './AttendeesForm.module.scss';
 import NewAttButton from '../../components/Button/NewAttButton/NewAttButton';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const AttendeesForm = () => {
@@ -73,7 +74,8 @@ const AttendeesForm = () => {
                                 <td>{attendee.email}</td>
                                 <td>{attendee.phone}</td>
                                 <td>
-                                    <a data-id={attendee._id} href="javascript:;" onClick={handleDelete}>Delete</a>
+                                    <a data-id={attendee._id} href="javascript:;" onClick={handleDelete}>Delete, </a>
+                                    <Link to={"/register?id=" + attendee._id}>Edit</Link>
                                 </td>
                             </tr>
                         ))}
