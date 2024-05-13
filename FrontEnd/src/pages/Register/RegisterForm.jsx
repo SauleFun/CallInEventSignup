@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styles from './RegisterForm.module.scss';
 import Input from '../../components/Input/Input';
+import RegisterButton from '../../components/Button/RegisterButton/RegisterButton';
 
 function RegisterForm() {
     const [formData, setFormData] = useState({
@@ -70,7 +71,7 @@ function RegisterForm() {
                             />
                             <label htmlFor="phoneNumber" className={styles.label}>Phone number</label>
                             <Input
-                                type="number"
+                                type="tel"
                                 id="phoneNumber"
                                 name="phone"
                                 placeholder="Phone number"
@@ -95,9 +96,8 @@ function RegisterForm() {
                 </div>
             </form>
             <div className={styles.buttons}>
-                <button type="button" onClick={handleExternalSubmit} className={styles.registerButton}>
-                    Register
-                </button>
+            <RegisterButton onClick={handleExternalSubmit} />
+               
             </div>
         </div>
     );
