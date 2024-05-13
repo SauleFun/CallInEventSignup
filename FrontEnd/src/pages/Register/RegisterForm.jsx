@@ -1,81 +1,104 @@
 import { useState } from 'react';
 import styles from './RegisterForm.module.scss';
-import Input from '../../components/Input/Input';
 import RegisterButton from '../../components/Button/RegisterButton/RegisterButton';
 
 function RegisterForm() {
-    const [formData] = useState({
-        name: '',
-        surname: '',
-        email: '',
-        phone: '',
-        age: '',
-    });
+    const [inputs, setInputs] = useState({});
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}))
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        fetch('http://localhost:8080/api/attendees/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(inputs)
+        })
+        .then(response => {
+            console.log(response);
+
+            return response.json
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.warn(error);
+        })
+        console.log(inputs);
+    }
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className={styles.registerContainer}>
                     <div className={styles.containerForm}>
                         <div className={styles.formHeading}>Personal Information</div>
                         <div className={styles.containerInput}>
                             <label htmlFor="name" className={styles.label}>Name</label>
-                            <Input
+                            <input
                                 type="text"
                                 id="name"
                                 name="name"
+                                onChange={handleChange}
                                 placeholder="Name"
-                                value={formData.name}
                                 className={styles.fullWidth}
                                 required
                             />
                             <label htmlFor="surname" className={styles.label}>Surname</label>
-                            <Input
+                            <input
                                 type="text"
                                 id="surname"
                                 name="surname"
+                                onChange={handleChange}
                                 placeholder="Surname"
-                                value={formData.surname}
                                 className={styles.fullWidth}
                                 required
                             />
                             <label htmlFor="email" className={styles.label}>Email</label>
-                            <Input
+                            <input
                                 type="email"
                                 id="email"
                                 name="email"
+                                onChange={handleChange}
                                 placeholder="Email"
-                                value={formData.email}
                                 className={styles.fullWidth}
                                 required
                             />
                             <label htmlFor="phoneNumber" className={styles.label}>Phone number</label>
-                            <Input
+                            <input
                                 type="tel"
                                 id="phoneNumber"
                                 name="phone"
+                                onChange={handleChange}
+                                pattern="\+370\s?6\d{2}\s?\d{5}"
                                 placeholder="Phone number"
-                                value={formData.phone}
                                 className={styles.fullWidth}
                                 required
                             />
                             <label htmlFor="age" className={styles.label}>Age</label>
-                            <Input
+                            <input
                                 type="number"
                                 id="age"
                                 name="age"
+                                onChange={handleChange}
                                 placeholder="Age"
-                                value={formData.age}
                                 className={styles.fullWidth}
                                 required
                             />
                         </div>
                     </div>
                 </div>
+            <RegisterButton />
             </form>
-            <div className={styles.buttons}>
-                <RegisterButton />
-            </div>
         </div>
     );
 }
