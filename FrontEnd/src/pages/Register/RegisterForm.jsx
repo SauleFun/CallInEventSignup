@@ -14,7 +14,6 @@ function RegisterForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log(inputs);
         fetch('http://localhost:8080/api/attendees/', {
             method: 'POST',
             headers: {
@@ -24,17 +23,14 @@ function RegisterForm() {
             body: JSON.stringify(inputs)
         })
         .then(response => {
-            console.log(response);
-
-            return response.json
+            return response.json();
         })
         .then(data => {
-            console.log(data);
+            location.href = "/";
         })
         .catch(error => {
             console.warn(error);
         })
-        console.log(inputs);
     }
 
     return (

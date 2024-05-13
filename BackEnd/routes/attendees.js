@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const express = require("express");
 require("dotenv").config();
 
@@ -13,6 +14,24 @@ router.get("/", async (req, res) => {
       .toArray();
     res.send(data);
   } catch (error) {
+    return res.status(500).send({ error });
+  }
+});
+
+router.delete("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+
+  console.log(id);
+  try {
+    const data = await client
+      .db("EventsDatabase")
+      .collection("Attendees")
+      .deleteOne({_id: new ObjectId(id)});
+
+    console.log(data);
+    res.send(data);
+  } catch (error) {
+    console.log(error);
     return res.status(500).send({ error });
   }
 });

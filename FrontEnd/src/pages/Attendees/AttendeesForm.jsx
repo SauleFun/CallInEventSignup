@@ -2,9 +2,51 @@
 import './AttendeesForm.module.scss';
 import styles from './AttendeesForm.module.scss';
 import NewAttButton from '../../components/Button/NewAttButton/NewAttButton';
+import { useEffect, useState } from 'react';
 
 
 const AttendeesForm = () => {
+    const [attendees, setAttendees] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:8080/api/attendees/', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            setAttendees(data);
+        })
+        .catch(error => {
+            console.warn(error);
+        })
+    });
+
+    const handleDelete = (event) => {
+        if(!event.target.dataset.id) return;
+
+        fetch(`http://localhost:8080/api/attendees/delete/${event.target.dataset.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.warn(error);
+        })
+    }
     return (
     <div >
         <NewAttButton></NewAttButton>
@@ -16,19 +58,25 @@ const AttendeesForm = () => {
                         <tr>
                             <th>Name</th>
                             <th>Surname</th>
-                            <th>Date of Birth</th>
+                            <th>Age</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Jurgita</td>
-                            <td>Kaziūnienė</td>
-                            <td>2001-11-24</td>
-                            <td>jurgita@kaziuniene.lt</td>
-                            <td>+370...</td>
-                        </tr>
+                        {attendees.map((attendee) => (
+                            <tr key={attendee._id}>
+                                <td>{attendee.name}</td>
+                                <td>{attendee.surname}</td>
+                                <td>{attendee.age}</td>
+                                <td>{attendee.email}</td>
+                                <td>{attendee.phone}</td>
+                                <td>
+                                    <a data-id={attendee._id} href="javascript:;" onClick={handleDelete}>Delete</a>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
