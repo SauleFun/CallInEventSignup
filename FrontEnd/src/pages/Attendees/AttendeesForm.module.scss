@@ -1,0 +1,49 @@
+.attendeesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Full viewport height */
+}
+
+
+
+
+.attendeesForm {
+    background:  rgba(118, 156, 57, 0.253);
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+  
+    
+  
+}
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: left;
+      color: #206630;
+      margin-bottom: 20px;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th, td {
+        text-align: center;
+        padding: 8px 16px;
+        border: 2px solid #ccc;
+      }
+  
+      th {
+        background-color: #e6e6e6;
+        font-weight: bold;
+        text-align: center;
+        color: #00420f;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: "Sacramento", cursive;
+      }
+    }
+  

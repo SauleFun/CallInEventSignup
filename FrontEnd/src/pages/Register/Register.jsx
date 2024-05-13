@@ -8,7 +8,7 @@ const Register = () => {
         <main>
             <Header></Header>
             <div className="content">
-                register
+           
 
                 <RegisterForm />
                 
