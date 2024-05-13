@@ -18,20 +18,22 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
-  // try {
-    // const newPet = {
-    //   ...req.body,
-    //   ownerId: new ObjectId(`${req.body.ownerId}`),
-    // };
-  //   const dbRes = await client
-  //     .db("demo1")
-  //     .collection("coolPets")
-  //     .insertOne(newPet);
-  //   res.send(dbRes);
-  // } catch (err) {
-  //   res.status(500).send({ err });
-  // }
+  let data = req.body;
+
+  if(!Object.keys(data).length){
+    res.status(500).send('No data found');
+  }
+
+  try {
+    const db = await client
+    .db("EventsDatabase")
+    .collection("Attendees")
+    .insertOne(data)
+  
+    res.send(db)
+  } catch(e) {
+    res.status(500).send({ e });
+  }
 });
 
 module.exports = router;

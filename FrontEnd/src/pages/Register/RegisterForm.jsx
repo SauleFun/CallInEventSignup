@@ -14,6 +14,7 @@ function RegisterForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        console.log(inputs);
         fetch('http://localhost:8080/api/attendees/', {
             method: 'POST',
             headers: {
