@@ -5,6 +5,8 @@ require("dotenv").config();
 const router = express.Router();
 const client = require("../config/db");
 
+
+// Pasiimti irasus
 router.get("/", async (req, res) => {
   try {
     const data = await client
@@ -18,6 +20,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Pasiimti 1 irasa
 router.get("/one/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -40,7 +43,7 @@ router.get("/one/:id", async (req, res) => {
   }
 });
 
-
+// Istrinti
 router.delete("/delete/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -58,6 +61,7 @@ router.delete("/delete/:id", async (req, res) => {
   }
 });
 
+// Issaugoti / Atnaujinti
 router.post("/", async (req, res) => {
   let data = req.body;
 

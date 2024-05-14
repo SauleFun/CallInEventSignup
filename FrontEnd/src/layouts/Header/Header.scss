@@ -1,0 +1,21 @@
+.header-wrap {
+height: 10vh;
+display:flex;
+justify-content: space-between;
+
+
+}
+
+.header-logo {
+    width: 15rem;
+    height:15rem ;
+    margin-top: -50px;
+}
+
+.header-nav {
+    position: relative; 
+    left: -20%; 
+    transform: translateX(20%); 
+    margin-top: 150px; 
+    
+}

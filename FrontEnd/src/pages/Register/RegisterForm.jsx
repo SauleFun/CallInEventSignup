@@ -3,12 +3,14 @@ import styles from './RegisterForm.module.scss';
 import RegisterButton from '../../components/Button/RegisterButton/RegisterButton';
 import { useSearchParams } from 'react-router-dom';
 
+
 function RegisterForm() {
     const [searchParams] = useSearchParams();
     
     useEffect(() => {
         const attendeeId = searchParams.get("id");
 
+//tikrinimas
         if(attendeeId) {
             fetch(`http://localhost:8080/api/attendees/one/${attendeeId}`, {
                 method: 'GET',
