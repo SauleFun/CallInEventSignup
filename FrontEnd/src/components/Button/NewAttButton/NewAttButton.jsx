@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './NewAttButton.css';
+import './NewAttButton.scss';
 
 const NewAttButton = () => {
   return (

@@ -1,29 +1,25 @@
 html, body {
-  height: 100%; /* Ensure the html and body are full height */
-  margin: 0; /* Reset default margin */
-  padding: 0; /* Reset default padding */
+  height: 100%; 
+  margin: 0; 
+  padding: 0; 
 }
 
 body {
-  background-image: url('./assets//background.jpg'); /* Update the path as necessary */
-  
-   
-   
-  }
-
+  background-image: url('./assets//background.jpg'); 
+}
 
 #root {
   display: flex;
-  flex-direction: column; /* Makes the children stack vertically */
-  min-height: 100%; /* Minimum height is the full viewport height */
+  flex-direction: column; 
+  min-height: 100%; 
 }
 
 main {
   display: flex;
-  flex-direction: column; /* Stack main children vertically */
-  flex: 1; /* Allows main to expand and push the footer to the bottom */
+  flex-direction: column; 
+  flex: 1; 
 }
 
 .footer-wrap {
-  margin-top: auto; /* Pushes the footer to the bottom */
+  margin-top: auto; 
 }

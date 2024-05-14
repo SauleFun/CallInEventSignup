@@ -1,4 +1,4 @@
-import './RegisterButton.css';
+import './RegisterButton.scss';
 
 const RegisterButton = () => {
   return (
