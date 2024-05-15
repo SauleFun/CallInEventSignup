@@ -6,7 +6,7 @@ const router = express.Router();
 const client = require("../config/db");
 
 
-// Pasiimti irasus
+// Pasiimti visus irasus
 router.get("/", async (req, res) => {
   try {
     const data = await client
