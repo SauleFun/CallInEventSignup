@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Pasiimti 1 irasa
+// Pasiimti 1 irasa 
 router.get("/one/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -73,16 +73,16 @@ router.post("/", async (req, res) => {
 
   if(data['_id']) {
     try {
-      const id = data['_id']; // Save the id
-      delete data['_id']; // Remove the _id from the data object to avoid conflicts in the update operation
+      const id = data['_id']; 
+      delete data['_id']; 
 
       const db = await client
         .db("EventsDatabase")
         .collection("Attendees")
         .updateOne(
-          { _id: new ObjectId(id)}, // Ensure the id is converted to ObjectId
-          { $set: data }, // Update operation
-          { upsert: true } // Option to insert a new document if one doesn't exist with the provided _id
+          { _id: new ObjectId(id)}, 
+          { $set: data }, 
+          { upsert: true } 
         );
 
       if (db.matchedCount === 0) {
